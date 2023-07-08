@@ -6,31 +6,30 @@ The game we will develop is called hunt the ace. So we have four cards one of wh
 The cards were pulled directly from the github repository using original links, but were downloaded for purposes of viewing.
 
 ## This tutorial not only covers creating a basic card game using JavaScript but also:
-**how to create dynamic user interactive code using vanilla JavaScript**
-**Creating some animation effects**
-**Responsive layout design using CSS grid, CSS FlexBox and media queries**
-**How to dynamically change the positions of grid cells, so as to randomize the positions of the cards contained in a css grid using JavaScript,
-localStorage functionality**
-**and much more…**
+- **how to create dynamic user interactive code using vanilla JavaScript**
+- **Creating some animation effects**
+- **Responsive layout design using CSS grid, CSS FlexBox and media queries**
+- **How to dynamically change the positions of grid cells, so as to randomize the positions of the cards contained in a css grid using JavaScript, localStorage functionality**
+- **and much more…**
 
 ## Here are the sections in this course:
 
-**Getting Started**
-**Live Server Extension**
-**Create Cards - HTML**
-**Create the Game Play Grid**
-**Create Cards Dynamically - JS Code**
-**Initialise Card Positions**
-**Load Game and Start Game**
-**Stack Cards**
-**Flip Cards**
-**Shuffle Cards**
-**Deal Cards**
-**Choose Card**
-**Styling and Layout**
-**Animation**
-**Responsive Layout**
-**Local Storage**
+- **Getting Started**
+- **Live Server Extension**
+- **Create Cards - HTML**
+- **Create the Game Play Grid**
+- **Create Cards Dynamically - JS Code**
+- **Initialise Card Positions**
+- **Load Game and Start Game**
+- **Stack Cards**
+- **Flip Cards**
+- **Shuffle Cards**
+- **Deal Cards**
+- **Choose Card**
+- **Styling and Layout**
+- **Animation**
+- **Responsive Layout**
+- **Local Storage**
 
 We will be creating the cards dynamically through Javascript code
 and appropriately add the cards to the document object model.
