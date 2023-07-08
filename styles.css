@@ -1,0 +1,342 @@
+/* Styling and Layout */
+/* we have completed the mechanics of the game but the layout and style need attention */
+
+/* lets use a particular google font */
+/* we will go to https://fonts.google.com/specimen/Quicksand and use the @import code provided */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* css variables to store the dimensions of our cards */
+/* we want our layout to respond to a smaller screen size so we add variables for our media query */
+:root {
+    --card-width-lg:157px;
+    --card-height-lg:220px;
+
+    --card-width-sm:120px;
+    --card-height-sm:168px;
+
+
+    --num-cards:4;
+
+    --card-horizontal-space-lg:100px;
+    --card-horizontal-space-sm:50px;
+
+    /* add color related variables */
+    --badge-bg-color:darkgray;
+    --primary-color: black;
+    --secondary-color: #ffffff;
+
+    /* variable to reference font family value */
+    --primary-font: 'Quicksand', sans-serif;
+
+}
+
+body {
+    background-color: ghostwhite;
+    height: 100vh; /* will take up 100% height of viewport screen */
+    /* set font family to font variable */
+    font-family: var(--primary-font);
+    overflow: hidden;
+}
+
+/* gameplay area to be aligned cetrally within the main element and take up an are along the width of the cards */
+main {
+    height: 55%;
+    display: flex; /* flexbox functionality to center align gameplay area */
+    justify-content: center;
+    /* to get a clear picture we add borders */
+    /* border: 1px solid black; */
+}
+
+/* Choose Card */
+/* remove all borders and colors from our game */
+
+/* styling for the container that contains the card */
+/* essentially denotes gameplay area */
+.card-container {
+    /* margin-top: 30px; */
+    position:relative;
+    height: 100%;
+    /* using calc CSS function to calculate the width of the gameplay area two cards will reside side by side on each row */
+    width: calc(var(--card-width-lg) * (var(--num-cards) / 2) + var(--card-horizontal-space-lg));
+    /* then to display the grid that will have two cards on each row we can use the grid functionality provided in CSS we can control where each individual card will reside by allocating each card position element a position in the grid by using the grid-template-areas property */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a b"
+                         "c d";
+    /* border: 1px solid black; */
+}
+
+/* lets give each of the grid cells different background colors so that we can get a clear picture of the layout of the grid note that each of the four cards used in this game will be placed a specific cell within the grid */
+
+.card-pos-a {
+    grid-area: a;
+    /* border: 1px solid black;
+    background-color: gray; */
+}
+.card-pos-b {
+    grid-area: b;
+    /* border: 1px solid black;
+    background-color: goldenrod; */
+}
+.card-pos-c {
+    grid-area: c;
+    /* border: 1px solid black;
+    background-color: rosybrown; */
+}
+.card-pos-d {
+    grid-area: d;
+    /* border: 1px solid black;
+    background-color: darkcyan; */
+}
+/* lets use CSS flexbox functionality to align the cards centrally within their parent elements */
+.card-pos-a, .card-pos-b, .card-pos-c, .card-pos-d {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* styling for the card elements */
+.card {
+    position: absolute;
+    height: var(--card-height-lg);
+    width: var(--card-width-lg);
+    perspective: 1000px;
+    cursor: pointer;
+    /* for shuffle animation */
+    transition: transform 0.6s ease-in-out;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.card-img {
+    height: 100%;
+}
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* before the shuffle cards process begins we want to flip the cards so that the backs of the cards are facing the user */
+/* when the inner card div element also contains a card named flipit that the UI responds by rotating the card on its y-axis by 180 degrees */
+/* .card.inner.flip-it *incorrect */
+.card-inner.flip-it {
+    transform: rotateY(180deg);
+}
+
+/* update header element so display is flex, and flex-direction is column. this positions its child elements one on top of the other as opposed to default which displays them next to eachother on the same row. give margin bottom property 10px */
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* lets us flexbox functionality this centers our heading text 'Hunt the Ace' */
+.header-title-container {
+    display:flex;
+    justify-content: center;
+    text-align: center
+}
+
+/* lets use flexgrid functionality for display of header-round-info-container element so that the image logo, the score, and the round number are spaced evenly on the same row */
+.header-round-info-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* make font size for current status element bigger */
+/* center the text */
+.current-status {
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+/* horizontally and vertically center all the elements contained within these elements by using the flexbox functionality */
+.header-status-info-container,
+.header-button-container,
+.header-score-container,
+.header-round-container,
+.header-img-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* give all elements a width of 150px */
+.header-score-container,
+.header-round-container,
+.header-img-container {
+    width:150px;
+}
+
+/* give ace of spades image height of 75px, and round the corners by setting border-radius property appropriately and add in a border and a box-shadow and rotate -3deg */
+.header-img {
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+}
+
+/* lets style the badge class so that our score and round number text stand out */
+.badge {
+    background-color: var(--badge-bg-color);
+    color: var(--secondary-color);
+    padding: 2px 10px 3px;
+    border-radius: 15px;
+}
+
+/* we want button to be static so set the height of gameplay button container */
+.game-play-button-container {
+    width: 150px;
+    height: 70px;
+}
+
+/* now lets style the button */
+/* we will go to https://getcssscan.com/css-buttons-examples and copy button 28 (pasted below) */
+
+
+/* <!-- default HTML !-->
+<button class="button-28" role="button">Button 28</button> */
+
+/* default CSS tags commented out and replaced with appropriate css */
+/* .button-28 { */
+/* we will edit the css */
+#playGame {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  /* makes button invisible upon first launch */
+  display: none;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  /* add fade-in animation */
+  animation: game-play-button-fade-in 10s 1;
+
+}
+
+/* .button-28:disabled  */
+#playGame:disabled {
+  pointer-events: none;
+}
+
+/* .button-28:hover  */
+#playGame:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+/* .button-28:active  */
+#playGame:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* we want gameplay button to not be visible when game first loads and to slowly fade in after fly-in animation */
+/* lets include keyframe functionality that controls the opacity */
+@keyframes game-play-button-fade-in {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+/* lets create the css code for the shuffle left class */
+.card.shuffle-left {
+    transform: translateX(200px) translatey(50px);
+}
+
+/* lets create the css code for the shuffle right class */
+.card.shuffle-right {
+    transform: translateX(-200px) translatey(-50px);
+}
+
+/* next animation is for when the game is first loaded i want the cards to fly in from the top left side of the screen to their positions on the grid */
+.card.fly-in {
+    transform: translateY(-1000px) translateX(-600px) rotate(45deg);
+}
+
+footer {
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Ive created the game so that it looks pretty good on desktop screens but what does it look like on smaller screens like a Samsung Galaxy S20 */
+/* it looks pretty good as it is on smaller screens because we are using CSS flexbox and grid functionality for the layout of our game but we could improve our layout for smaller screens  */
+/* so to make our layout responsive for smaller screens let's include an appropriate media query */
+/* so basically when our screen size is 600px or less */
+@media screen and (max-width:600px) {
+    /*we want certain css classes to be dynamically modified in response to a smaller screen size */
+    /* we want our layout to respond in a certain way at this smaller screen size we can for example make our cards smaller */
+    .card {
+        width: var(--card-width-sm);
+        height: var(--card-height-sm);
+    }
+
+    .card-container {
+        width: calc(var(--card-width-sm) * (var(--num-cards)/2) + var(--card-horizontal-space-sm));
+    }
+
+    main {
+        height: 50%;
+    }
+
+    .current-status {
+        font-size: 1.2rem;
+    }
+
+    .game-play-button-container {
+        width: 120px;
+        height: 40px;
+    }
+
+    #playGame {
+        padding: 6px 8px;
+        font-size: 12px;
+        min-height: 40px;
+    }
+
+    .header-img {
+        height: 55px;
+    }
+}
+
+/* this code causes the card to flip over to the back */
+/* .card:hover .card-inner {
+    transform: rotateY(180deg);
+} */

@@ -1,0 +1,96 @@
+<!--hit the exclamation mark then press tab to generate boiler plate html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hunt The Ace game coded using JavaScript"
+    />
+    <!-- Dollar Sign Favicon -->
+    <link
+      rel="icon"
+      href="https://clipart-library.com/img/2032148.png"
+      type="image/x-icon"
+    />
+    <title>Hunt The Ace</title>
+    <!-- located at the bottom of the head element, this links our css file to our html file -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--using semantic html-->
+    <!--type header then press tab key to generate open and ending header tags-->
+    <header>
+      <!--a quick way to generate html code for the relevant tag that includes specific class attribut in vs code is to type 'tag name'.'class name' then press tab and vs code automatically generates the desired html code -->
+      <div class="header-title-container">
+        <h1>Hunt the Ace</h1>
+      </div>
+      <!-- logo, output score and round number -->
+      <div class="header-round-info-container">
+        <div class="header-img-container">
+          <img src="/images/AceSpades.png" alt="" class="header-img" />
+        </div>
+        <div class="header-score-container">
+          <h2 class="score">Score&nbsp;<span class="badge">0</span></h2>
+        </div>
+        <div class="header-round-container">
+          <h2 class="round">Round&nbsp;<span class="badge">0</span></h2>
+        </div>
+      </div>
+
+      <!-- current status element -->
+      <div class="header-status-info-container">
+        <p class="current-status">Click 'Play Game' button to play game</p>
+      </div>
+
+      <!-- static layout related code for start game button -->
+      <!-- parent header button container -->
+      <div class="header-button-container">
+        <!-- child game play button container -->
+        <div class="game-play-button-container">
+          <!-- button itself -->
+          <button id="playGame" class="play-game">Play Game</button>
+        </div>
+      </div>
+    </header>
+    <!--
+    <!-layout related code to create the card statically
+      <!-child div element->
+      <div class="card">
+        <!-child div element->
+        <div class="card-inner">
+          <!-two child div element->
+          <!-first child div element->
+          <div class="card-front">
+            <img src="/images/card-JackClubs.png" alt="" class="card-img" />
+          </div>
+          <!-second child div element->
+          <div class="card-back">
+            <img src="images/card-back-Blue.png" alt="" class="card-img" />
+          </div>
+        </div>
+      </div>
+    -->
+    <main>
+      <!-- Create the Game Play Grid -->
+      <div class="card-container">
+        <!--denote four positions for each card in the gameplay area-->
+        <div class="card-pos-a"></div>
+        <div class="card-pos-b"></div>
+        <div class="card-pos-c"></div>
+        <div class="card-pos-d"></div>
+      </div>
+    </main>
+    <footer>
+      <p class="copyright">© Documented and Coded by Money Smart</p>
+      <!-- Taught to by Gavin Lon of freeCodeCamp -->
+      <!-- original code https://github.com/GavinLonDigital/HuntTheAceJSGame/tree/main -->
+      <!-- code has been originally parsed, edited, and written by Money Smart with extra commentary, style and functionality differences have also been induced -->
+      <!-- follow along and learn yourself here: -->
+      <!-- https://www.youtube.com/watch?v=Bj6lC93JMi0 -->
+    </footer>
+    <!-- located at the bottom of the body element, this links our js file to our HTML file -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
